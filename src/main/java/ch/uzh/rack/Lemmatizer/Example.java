@@ -17,6 +17,7 @@ public class Example
         System.out.println("Running lemmatizer with duplicate removal");
         lemmatizer = new IdentifierLemmatizer()
                          .enableDuplicateRemoval();
+        
         lemmas = lemmatizer.lemmatize(identifier);
         System.out.println(lemmas);
 
@@ -24,14 +25,16 @@ public class Example
         lemmatizer = new IdentifierLemmatizer()
                          .enableDuplicateRemoval()
                          .enableStopWordRemoval();
+        
         lemmas = lemmatizer.lemmatize(identifier);
         System.out.println(lemmas);
         
         System.out.println("Running lemmatizer with cautios stopword and duplicate removal");
         lemmatizer = new IdentifierLemmatizer()
-                      .enableDuplicateRemoval()
-                      .enableStopWordRemoval()
-                      .enableCautiosStopWordRemoval();
+                         .enableDuplicateRemoval()
+                         .enableStopWordRemoval()
+                         .enableCautiosStopWordRemoval();
+        
         lemmas = lemmatizer.lemmatize(identifier);
         System.out.println(lemmas);
     }
