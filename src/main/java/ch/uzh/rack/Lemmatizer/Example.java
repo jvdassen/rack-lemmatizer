@@ -6,33 +6,34 @@ public class Example
 {
     public static void main( String[] args )
     {
-        String identifier = "getACarForEachCarOfCarsWhoAreRegistered";
+        String identifier = "getACarOrMultipleCarsForEachAccount";
+        ILemmatizer lemmatizer = new IdentifierLemmatizer();
+        List<String> lemmas;
         
         System.out.println("Running basic lemmatizer");
-        ILemmatizer lemmatizer = new IdentifierLemmatizer();
-        List<String> lemmas1 = lemmatizer.lemmatize(identifier);
-        System.out.println(lemmas1);
+        lemmas = lemmatizer.lemmatize(identifier);
+        System.out.println(lemmas);
 
         System.out.println("Running lemmatizer with duplicate removal");
-        ILemmatizer lemmatizer2 = new IdentifierLemmatizer()
-                                      .enableDuplicateRemoval();
-        List<String> lemmas2 = lemmatizer2.lemmatize(identifier);
-        System.out.println(lemmas2);
+        lemmatizer = new IdentifierLemmatizer()
+                         .enableDuplicateRemoval();
+        lemmas = lemmatizer.lemmatize(identifier);
+        System.out.println(lemmas);
 
         System.out.println("Running lemmatizer with stopword and duplicate removal");
-        ILemmatizer lemmatizer3 = new IdentifierLemmatizer()
-                                      .enableDuplicateRemoval()
-                                      .enableStopWordRemoval();
-        List<String> lemmas3 = lemmatizer3.lemmatize(identifier);
-        System.out.println(lemmas3);
+        lemmatizer = new IdentifierLemmatizer()
+                         .enableDuplicateRemoval()
+                         .enableStopWordRemoval();
+        lemmas = lemmatizer.lemmatize(identifier);
+        System.out.println(lemmas);
         
         System.out.println("Running lemmatizer with cautios stopword and duplicate removal");
-        ILemmatizer lemmatizer4 = new IdentifierLemmatizer()
-                                      .enableDuplicateRemoval()
-                                      .enableStopWordRemoval()
-                                      .enableCautiosStopWordRemoval();
-        List<String> lemmas4 = lemmatizer4.lemmatize(identifier);
-        System.out.println(lemmas4);
+        lemmatizer = new IdentifierLemmatizer()
+                      .enableDuplicateRemoval()
+                      .enableStopWordRemoval()
+                      .enableCautiosStopWordRemoval();
+        lemmas = lemmatizer.lemmatize(identifier);
+        System.out.println(lemmas);
     }
 
 }
