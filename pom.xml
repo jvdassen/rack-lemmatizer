@@ -7,6 +7,9 @@
   <version>1.0-SNAPSHOT</version>
   <name>Lemmatizer</name>
   <url>http://maven.apache.org</url>
+  <properties>
+        <exec.mainClass>ch.uzh.rack.nlp.Lemmatizer.Example</exec.mainClass>
+	</properties>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
