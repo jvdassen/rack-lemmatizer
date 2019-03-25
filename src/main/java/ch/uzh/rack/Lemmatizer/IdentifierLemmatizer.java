@@ -9,6 +9,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import edu.stanford.nlp.simple.Sentence;
+import edu.stanford.nlp.process.*;
 
 public class IdentifierLemmatizer implements ILemmatizer {
 	
@@ -41,7 +42,7 @@ public class IdentifierLemmatizer implements ILemmatizer {
 
 	@Override
 	public List<String> lemmatize(String identifier) {
-        String paddedIdentifier = splitCamelCase(identifier);
+        String paddedIdentifier = tokenizeSentence(identifier);
         List <String> words = new ArrayList<>(Arrays.asList(paddedIdentifier.split(" ")));
         
         words = words.stream()
@@ -66,7 +67,7 @@ public class IdentifierLemmatizer implements ILemmatizer {
 		return lemmas;
 	}
 	
-    public String splitCamelCase(String s) {
+    public String tokenizeSentence(String s) {
  	   return s.replaceAll(
  	      String.format("%s|%s|%s",
  	         "(?<=[A-Z])(?=[A-Z][a-z])",
